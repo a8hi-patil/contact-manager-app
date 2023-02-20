@@ -1,5 +1,6 @@
 import React from "react";
 import user from "../image/user.png"
+import { Link } from "react-router-dom";
 const ContactCard = (props) => {
     const removeContactHandlerContactListCard = (id) => {
         // console.log('contactcard')
@@ -11,12 +12,15 @@ const ContactCard = (props) => {
         <div className="item">
             <img style={{ height: "45px" }} src={user} alt="user" className="ui avtar image" />
             <div className="content">
-                <div className="header">
-                    {name}
-                </div>
-                <div>{email}</div>
-                <div>{phone}</div>
+                <Link to={`/contact/${id}`} state={{ contact: props.contact }} >
+                    <div className="header">
+                        {name}
+                    </div>
+                    <div>{email}</div>
+                    <div>{phone}</div>
+                </Link>
             </div>
+
 
             <i style={{ color: "red" }} className="trash alternate outline icon" onClick={() => { removeContactHandlerContactListCard(id) }} ></i>
 
